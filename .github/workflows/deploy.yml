@@ -25,7 +25,8 @@ jobs:
 
     - name: Create service account JSON file
       run: |
-        echo "${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}" > service_account.json
+        echo "${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}" | base64 --decode > service_account.json
+
 
     - name: Run Python script
       run: |
