@@ -27,6 +27,14 @@ jobs:
       run: |
         python scripts/main_script.py  # Executes the main script that generates the HTML file
 
+    - name: Disable Jekyll
+      run: |
+        touch docs/.nojekyll  # Prevent Jekyll from processing your site
+
+    - name: List files in docs directory  # Verifies the HTML file was generated
+      run: |
+        ls -l docs
+
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4  # Updated to v4
       with:
