@@ -172,13 +172,14 @@ html_code = f'''<!DOCTYPE html>
 '''
 
 # Define the path where you want to save the HTML file in the 'docs/' folder
-output_html_path = os.path.join(output_directory, 'index.html')
+output_html_path = os.path.join(output_directory, 'index.html')  # Change to index.html
 
 # Save the HTML code to the file
 with open(output_html_path, 'w') as html_file:
     html_file.write(html_code)
 
 print(f"New HTML file saved to {output_html_path}")
+
 
 # Add this check at the end of your script
 if os.path.exists(output_html_path):
