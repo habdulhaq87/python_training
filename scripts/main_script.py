@@ -38,7 +38,7 @@ positions_sheet = sheet.worksheet('positions')
 positions_data = positions_sheet.get_all_records()
 positions_df = pd.DataFrame(positions_data)
 
-# Fetch data from the 'profiles' tab (instead of CSV)
+# Fetch data from the 'profiles' tab
 profiles_sheet = sheet.worksheet('profiles')
 profiles_data = profiles_sheet.get_all_records()
 profiles_df = pd.DataFrame(profiles_data)
@@ -120,7 +120,7 @@ for index, row in positions_df.iterrows():
 
 # ------------------- Circle Drawing Code -------------------
 
-# Build a mapping from Profile to color and name
+# Build a mapping from Profile to color and name dynamically based on new entries
 profiles_mapping = {}
 profiles_list = []
 
@@ -148,7 +148,7 @@ circle_radius = 10
 offsets_list = generate_offsets(len(profiles_list), circle_radius)
 offsets = {profile: offset for profile, offset in zip(profiles_list, offsets_list)}
 
-# Draw circles based on points and profiles data
+# Dynamically handle profiles, ensuring new ones are processed
 for index, row in points_df.iterrows():
     position = row['Position']
     if position:
