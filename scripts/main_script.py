@@ -1,4 +1,4 @@
-# Import required libraries
+# Import required libraries 
 from PIL import Image, ImageDraw, ImageFont
 import pandas as pd
 import textwrap
