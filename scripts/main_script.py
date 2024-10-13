@@ -6,6 +6,7 @@ import ast
 import math
 import os
 import gspread
+import json
 from oauth2client.service_account import ServiceAccountCredentials
 
 # Directory setup
@@ -17,7 +18,11 @@ os.makedirs(output_directory, exist_ok=True)
 
 # Google Sheets API Setup
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-creds = ServiceAccountCredentials.from_json_keyfile_name('service_account.json', scope)
+
+# Load the JSON credentials from the GitHub secret (Make sure you have this in the GitHub Actions as a secret)
+service_account_info = json.loads(os.getenv('GOOGLE_SERVICE_ACCOUNT_JSON'))
+creds = ServiceAccountCredentials.from_json_keyfile_dict(service_account_info, scope)
+
 client = gspread.authorize(creds)
 
 # Access the Google Sheet
