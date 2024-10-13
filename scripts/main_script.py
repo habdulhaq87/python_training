@@ -185,3 +185,26 @@ if os.path.exists(output_html_path):
     print(f"HTML file generated successfully at: {output_html_path}")
 else:
     raise FileNotFoundError(f"HTML file not found at: {output_html_path}")
+
+
+import os
+
+# Debugging: Check if the output directory exists
+print(f"Output directory: {output_directory}")
+print(f"Output file path: {output_html_path}")
+print(f"Current working directory: {os.getcwd()}")
+
+# Debugging: List files in the current directory
+print("Files in the output directory:")
+print(os.listdir(output_directory))
+
+# Save the HTML code to the file
+with open(output_html_path, 'w') as html_file:
+    html_file.write(html_code)
+
+# Check if the file is written
+if os.path.exists(output_html_path):
+    print(f"HTML file generated successfully at {output_html_path}")
+else:
+    raise FileNotFoundError(f"Failed to generate HTML file at {output_html_path}")
+
