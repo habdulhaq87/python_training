@@ -1,0 +1,17 @@
+Room,Index,Corner Position 1,Corner Position 2,Corner Position 3,Corner Position 4,Label,font_size
+R1,Date,"(2103, 167)","(2103, 238)","(2343, 238)","(2343, 166)","I know how to write code with Python
+",18
+R2,Big,"(64, 231)","(64, 505)","(799, 505)","(799, 231)",Mastering Python through Personalized Learning with Hawkar,40
+R3,Small,"(1338, 360)","(1338, 431)","(1578, 431)","(1578, 360)",Completing the course,18
+R4,Small,"(1069, 496)","(1071, 563)","(1310, 562)","(1309, 492)",Completing a Personalized Project,18
+R5,Small,"(888, 646)","(888, 717)","(1128, 717)","(1127, 646)",Building a Personalized Project,18
+R6,Small,"(624, 744)","(624, 815)","(864, 814)","(863, 744)",Intro to Data Analysis with Python,18
+R7,Small,"(351, 869)","(351, 940)","(591, 940)","(591, 869)","Introduction to Hawkar’s Workflow for Python Scripts
+",18
+R8,Small,"(157, 1050)","(159, 1121)","(397, 1121)","(397, 1050)",Starting Learning Python Environment,18
+R9,Bottom,"(2051, 1305)","(2051, 1511)","(2416, 1510)","(2416, 1305)","I can confidently write Python code, solve problems efficiently, and add Python skills to my CV to enhance my professional profile.",20
+R10,Bottom,"(428, 1306)","(64, 1305)","(63, 1510)","(428, 1511)",Conduct a survey; setting up personalized learning,20
+R11,Bottom,"(459, 1306)","(460, 1511)","(824, 1510)","(824, 1305)","Python environment successfully set up, with basic Python code working seamlessly.",20
+R12,Bottom,"(857, 1306)","(858, 1511)","(1222, 1511)","(1221, 1305)",Learn how to write and evolve Python scripts efficiently by communicating with ChatGPT to automate tasks and solve problems.,20
+R13,Bottom,"(1622, 1306)","(1257, 1305)","(1258, 1511)","(1622, 1511)","Understands how to analyze data using Python and ChatGPT guidance, able to work with data and generate meaningful insights.",20
+R14,Bottom,"(1655, 1306)","(1656, 1511)","(2020, 1510)","(2019, 1305)",Learn how to write and evolve Python scripts efficiently by communicating with ChatGPT to automate tasks and solve problems.,20
