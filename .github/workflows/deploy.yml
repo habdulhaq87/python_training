@@ -8,13 +8,14 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 10  # Increase the timeout to 10 minutes
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v4  # Ensure latest checkout action
 
     - name: Set up Python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v5  # Latest Python action
       with:
         python-version: '3.x'  # Specify the Python version you need
 
@@ -28,15 +29,16 @@ jobs:
 
     - name: Disable Jekyll
       run: |
-        touch docs/.nojekyll  # Disable Jekyll processing
+        touch docs/.nojekyll  # Prevent Jekyll from processing your site
 
-    - name: List files in docs directory
+    - name: List files in docs directory  # Verifies the HTML file was generated
       run: |
-        ls -l docs  # Verify that the images/ folder is included here
+        ls -l docs
 
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v4
+      uses: peaceiris/actions-gh-pages@v4  # Updated to v4
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./docs  # Ensure the docs folder is pushed
+        github_token: ${{ secrets.GITHUB_TOKEN }}  # Automatically provided by GitHub Actions
+        publish_dir: ./docs  # This is the directory where the HTML is generated
         publish_branch: gh-pages
+        keep_files: true  # Preserve existing files in gh-pages branch
