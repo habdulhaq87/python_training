@@ -31,9 +31,11 @@ img_width, img_height = img.size
 svg_elements = []
 
 # Add the image as the background (Make sure the file path in href is correct)
+# Add the image as the background (correct the path to 'images/background_image.jpg')
 svg_code = f'''<svg width="{img_width}" height="{img_height}" xmlns="http://www.w3.org/2000/svg">
-  <image href="background_image.jpg" x="0" y="0" width="{img_width}" height="{img_height}"/>
+  <image href="images/background_image.jpg" x="0" y="0" width="{img_width}" height="{img_height}"/>
 '''
+
 
 # Function to parse string tuples (e.g., "(2103, 167)") into real tuple objects
 def parse_tuple_string(tuple_string):
