@@ -8,6 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 10  # Increase the timeout to 10 minutes
 
     steps:
     - name: Checkout code
@@ -27,10 +28,7 @@ jobs:
         python scripts/main_script.py  # Executes the main script that generates the HTML file
 
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3  # GitHub Pages deploy action
+      uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}  # Automatically provided by GitHub Actions
         publish_dir: ./docs  # This is the directory where the HTML is generated
-
-    - name: Post to GitHub Pages
-      run: echo "HTML deployed to GitHub Pages!"
