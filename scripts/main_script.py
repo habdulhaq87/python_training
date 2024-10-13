@@ -5,6 +5,8 @@ import textwrap
 import ast
 import math
 import os
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
 
 # Directory setup
 data_directory = 'data/'
@@ -14,9 +16,23 @@ output_directory = 'docs/'  # Updated to save in the 'docs' folder
 # Create output directory if it doesn't exist
 os.makedirs(output_directory, exist_ok=True)
 
-# Load data from CSV files
+# Google Sheets API Setup
+scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
+creds = ServiceAccountCredentials.from_json_keyfile_name('path_to_your_service_account_json_file.json', scope)
+client = gspread.authorize(creds)
+
+# Access the Google Sheet
+sheet = client.open_by_url('https://docs.google.com/spreadsheets/d/1EcEWYavEFsQIJkmr0VGgGiHbqXIrJKFIW_d3mM_teXc/edit?usp=sharing')
+points_sheet = sheet.worksheet('points')
+
+# Fetch the data from the 'points' tab
+points_data = points_sheet.get_all_records()
+
+# Convert the data to a DataFrame
+points_df = pd.DataFrame(points_data)
+
+# Load the positions and profiles data from CSV files
 positions_df = pd.read_csv(os.path.join(data_directory, 'positions.csv'))
-points_df = pd.read_csv(os.path.join(data_directory, 'points.csv'))
 profiles_df = pd.read_csv(os.path.join(data_directory, 'profiles.csv'))
 
 # Load the background image (ensure the filename matches exactly)
@@ -212,3 +228,4 @@ if os.path.exists(output_html_path):
     print(f"HTML file generated successfully at {output_html_path}")
 else:
     raise FileNotFoundError(f"Failed to generate HTML file at {output_html_path}")
+``
