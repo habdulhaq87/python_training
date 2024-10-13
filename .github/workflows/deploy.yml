@@ -21,7 +21,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install pandas Pillow
+        pip install pandas Pillow gspread oauth2client  # Install required dependencies for Google Sheets
 
     - name: Run Python script
       run: |
