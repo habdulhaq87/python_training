@@ -228,5 +228,3 @@ if os.path.exists(output_html_path):
     print(f"HTML file generated successfully at {output_html_path}")
 else:
     raise FileNotFoundError(f"Failed to generate HTML file at {output_html_path}")
-
-``
