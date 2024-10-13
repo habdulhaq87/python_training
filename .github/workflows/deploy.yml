@@ -21,7 +21,11 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install pandas Pillow gspread oauth2client  # Install required dependencies for Google Sheets
+        pip install pandas Pillow gspread oauth2client
+
+    - name: Create service account JSON file
+      run: |
+        echo "${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}" > service_account.json
 
     - name: Run Python script
       run: |
@@ -30,10 +34,6 @@ jobs:
     - name: Disable Jekyll
       run: |
         touch docs/.nojekyll  # Prevent Jekyll from processing your site
-
-    - name: List files in docs directory  # Verifies the HTML file was generated
-      run: |
-        ls -l docs
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4  # Updated to v4
