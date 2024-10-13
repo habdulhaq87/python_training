@@ -172,7 +172,7 @@ html_code = f'''<!DOCTYPE html>
 '''
 
 # Define the path where you want to save the HTML file in the 'docs/' folder
-output_html_path = os.path.join(output_directory, 'output_image.html')
+output_html_path = os.path.join(output_directory, 'index.html')
 
 # Save the HTML code to the file
 with open(output_html_path, 'w') as html_file:
