@@ -1,5 +1,5 @@
 # Import required libraries 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw
 import pandas as pd
 import textwrap
 import ast
@@ -27,16 +27,13 @@ draw = ImageDraw.Draw(img)
 # Get image dimensions
 img_width, img_height = img.size
 
-# Initialize SVG code
+# Initialize SVG code with responsive settings
 svg_elements = []
 
-# Add the image as the background (Make sure the file path in href is correct)
-# Add the image as the background (correct the path to 'images/background_image.jpg')
-# Add the image as the background using the absolute URL
-svg_code = f'''<svg width="{img_width}" height="{img_height}" xmlns="http://www.w3.org/2000/svg">
+# Add the image as the background using the absolute URL and responsive viewBox
+svg_code = f'''<svg viewBox="0 0 {img_width} {img_height}" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
   <image href="https://habdulhaq87.github.io/python_training/images/background_image.jpg" x="0" y="0" width="{img_width}" height="{img_height}"/>
 '''
-
 
 # Function to parse string tuples (e.g., "(2103, 167)") into real tuple objects
 def parse_tuple_string(tuple_string):
@@ -162,11 +159,23 @@ for element in svg_elements:
 # Close the SVG tag
 svg_code += '</svg>'
 
-# Wrap the SVG code into an HTML template
+# Wrap the SVG code into an HTML template with responsive styling
 html_code = f'''<!DOCTYPE html>
 <html>
 <head>
     <title>Output Image</title>
+    <style>
+        body, html {{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }}
+    </style>
 </head>
 <body>
     {svg_code}
@@ -175,7 +184,7 @@ html_code = f'''<!DOCTYPE html>
 '''
 
 # Define the path where you want to save the HTML file in the 'docs/' folder
-output_html_path = os.path.join(output_directory, 'index.html')  # Change to index.html
+output_html_path = os.path.join(output_directory, 'index.html')
 
 # Save the HTML code to the file
 with open(output_html_path, 'w') as html_file:
@@ -183,32 +192,23 @@ with open(output_html_path, 'w') as html_file:
 
 print(f"New HTML file saved to {output_html_path}")
 
-
 # Add this check at the end of your script
 if os.path.exists(output_html_path):
     print(f"HTML file generated successfully at: {output_html_path}")
 else:
     raise FileNotFoundError(f"HTML file not found at: {output_html_path}")
 
-
-import os
-
 # Debugging: Check if the output directory exists
 print(f"Output directory: {output_directory}")
 print(f"Output file path: {output_html_path}")
 print(f"Current working directory: {os.getcwd()}")
 
-# Debugging: List files in the current directory
+# Debugging: List files in the output directory
 print("Files in the output directory:")
 print(os.listdir(output_directory))
-
-# Save the HTML code to the file
-with open(output_html_path, 'w') as html_file:
-    html_file.write(html_code)
 
 # Check if the file is written
 if os.path.exists(output_html_path):
     print(f"HTML file generated successfully at {output_html_path}")
 else:
     raise FileNotFoundError(f"Failed to generate HTML file at {output_html_path}")
-
