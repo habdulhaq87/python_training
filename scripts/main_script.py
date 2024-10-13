@@ -179,3 +179,9 @@ with open(output_html_path, 'w') as html_file:
     html_file.write(html_code)
 
 print(f"New HTML file saved to {output_html_path}")
+
+# Add this check at the end of your script
+if os.path.exists(output_html_path):
+    print(f"HTML file generated successfully at: {output_html_path}")
+else:
+    raise FileNotFoundError(f"HTML file not found at: {output_html_path}")
