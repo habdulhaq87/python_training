@@ -32,8 +32,9 @@ svg_elements = []
 
 # Add the image as the background (Make sure the file path in href is correct)
 # Add the image as the background (correct the path to 'images/background_image.jpg')
+# Add the image as the background using the absolute URL
 svg_code = f'''<svg width="{img_width}" height="{img_height}" xmlns="http://www.w3.org/2000/svg">
-  <image href="images/background_image.jpg" x="0" y="0" width="{img_width}" height="{img_height}"/>
+  <image href="https://habdulhaq87.github.io/python_training/images/background_image.jpg" x="0" y="0" width="{img_width}" height="{img_height}"/>
 '''
 
 
