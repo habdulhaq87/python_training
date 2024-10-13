@@ -17,9 +17,11 @@ output_directory = 'docs/'  # Updated to save in the 'docs' folder
 os.makedirs(output_directory, exist_ok=True)
 
 # Google Sheets API Setup
+# Google Sheets API Setup
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 creds = ServiceAccountCredentials.from_json_keyfile_name('service_account.json', scope)
 client = gspread.authorize(creds)
+
 
 # Access the Google Sheet
 sheet = client.open_by_url('https://docs.google.com/spreadsheets/d/1EcEWYavEFsQIJkmr0VGgGiHbqXIrJKFIW_d3mM_teXc/edit?usp=sharing')
