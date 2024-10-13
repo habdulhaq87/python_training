@@ -39,5 +39,5 @@ jobs:
       uses: peaceiris/actions-gh-pages@v4  # Updated to v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}  # Automatically provided by GitHub Actions
-        publish_dir: ./docs  # This is the directory where the HTML is generated
+        publish_dir: ./docs  # This is the directory where the HTML is generated and images are located
         publish_branch: gh-pages  # Ensure the gh-pages branch is updated
