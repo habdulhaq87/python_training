@@ -9,7 +9,7 @@ import os
 # Directory setup
 data_directory = 'data/'
 image_directory = 'images/'
-output_directory = 'output/'
+output_directory = 'docs/'  # Updated to save in the 'docs' folder
 
 # Create output directory if it doesn't exist
 os.makedirs(output_directory, exist_ok=True)
@@ -171,7 +171,7 @@ html_code = f'''<!DOCTYPE html>
 </html>
 '''
 
-# Define the path where you want to save the HTML file
+# Define the path where you want to save the HTML file in the 'docs/' folder
 output_html_path = os.path.join(output_directory, 'output_image.html')
 
 # Save the HTML code to the file
