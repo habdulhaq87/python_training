@@ -1,4 +1,4 @@
-# Import required librariess
+# Import required libraries
 from PIL import Image, ImageDraw
 import pandas as pd
 import textwrap
@@ -33,8 +33,10 @@ positions_sheet = sheet.worksheet('positions')
 positions_data = positions_sheet.get_all_records()
 positions_df = pd.DataFrame(positions_data)
 
-# Load the profiles data from the local CSV file
-profiles_df = pd.read_csv(os.path.join('data/', 'profiles.csv'))
+# Fetch data from the 'profiles' tab (instead of CSV)
+profiles_sheet = sheet.worksheet('profiles')
+profiles_data = profiles_sheet.get_all_records()
+profiles_df = pd.DataFrame(profiles_data)
 
 # Load the background image (ensure the filename matches exactly)
 image_path = os.path.join(image_directory, 'background_image.jpg')
