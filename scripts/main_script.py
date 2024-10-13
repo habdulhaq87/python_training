@@ -19,7 +19,7 @@ positions_df = pd.read_csv(os.path.join(data_directory, 'positions.csv'))
 points_df = pd.read_csv(os.path.join(data_directory, 'points.csv'))
 profiles_df = pd.read_csv(os.path.join(data_directory, 'profiles.csv'))
 
-# Load the background image
+# Load the background image (ensure the filename matches exactly)
 image_path = os.path.join(image_directory, 'background_image.jpg')
 img = Image.open(image_path)
 draw = ImageDraw.Draw(img)
@@ -30,7 +30,7 @@ img_width, img_height = img.size
 # Initialize SVG code
 svg_elements = []
 
-# Add the image as the background
+# Add the image as the background (Make sure the file path in href is correct)
 svg_code = f'''<svg width="{img_width}" height="{img_height}" xmlns="http://www.w3.org/2000/svg">
   <image href="background_image.jpg" x="0" y="0" width="{img_width}" height="{img_height}"/>
 '''
