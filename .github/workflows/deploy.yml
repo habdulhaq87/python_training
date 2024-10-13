@@ -5,7 +5,7 @@ on:
     branches:
       - main  # Triggers deployment when pushing to the main branch
   schedule:
-    - cron: '0 * * * *'  # Runs every hour (at the start of the hour)
+    - cron: '0 * * * *'  # Run every hour
 
 jobs:
   deploy:
@@ -26,6 +26,8 @@ jobs:
         pip install pandas Pillow gspread oauth2client
 
     - name: Run Python script
+      env:
+        GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}  # Accessing the Google credentials from GitHub Secrets
       run: |
         python scripts/main_script.py  # Executes the main script that generates the HTML file
 
