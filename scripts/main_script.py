@@ -18,7 +18,7 @@ os.makedirs(output_directory, exist_ok=True)
 
 # Google Sheets API Setup
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-creds = ServiceAccountCredentials.from_json_keyfile_name('path_to_your_service_account_json_file.json', scope)
+creds = ServiceAccountCredentials.from_json_keyfile_name('service_account.json', scope)
 client = gspread.authorize(creds)
 
 # Access the Google Sheet
