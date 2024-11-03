@@ -138,8 +138,8 @@ def generate_offsets(num_points, radius):
     offsets = []
     for i in range(num_points):
         angle = 2 * math.pi * i / num_points
-        offset_x = radius * 8 * math.cos(angle)
-        offset_y = radius * 8 * math.sin(angle)
+        offset_x = radius * 6 * math.cos(angle)
+        offset_y = radius * 6 * math.sin(angle)
         offsets.append((offset_x, offset_y))
     return offsets
 
