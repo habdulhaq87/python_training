@@ -43,7 +43,7 @@ def parse_tuple_string(tuple_string):
     except (ValueError, SyntaxError):
         return None
 
-def check_overlap(existing_positions, new_position, buffer=10):
+def check_overlap(existing_positions, new_position, buffer=20):
     """Check if the new position overlaps with any existing positions."""
     new_x, new_y, new_width, new_height = new_position
     for (ex_x, ex_y, ex_width, ex_height) in existing_positions:
